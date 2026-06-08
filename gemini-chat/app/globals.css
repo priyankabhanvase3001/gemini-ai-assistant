@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-gold:           #D4AF37;
+  --color-gold-light:     #E8C84A;
+  --color-gold-dark:      #B8962E;
+  --color-onyx:           #0D0D0D;
+  --color-surface:        #1A1A1A;
+  --color-surface-raised: #222222;
+  --color-surface-border: #2A2A2A;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --animate-fade-in:    fadeIn 0.2s ease-in-out;
+  --animate-slide-in:   slideIn 0.3s ease-out;
+  --animate-pulse-gold: pulseGold 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes slideIn {
+  0%   { transform: translateX(-10px); opacity: 0; }
+  100% { transform: translateX(0);     opacity: 1; }
+}
+@keyframes pulseGold {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+:root {
+  --gold:           #D4AF37;
+  --gold-light:     #E8C84A;
+  --gold-dark:      #B8962E;
+  --gold-muted:     rgba(212, 175, 55, 0.12);
+  --onyx:           #0D0D0D;
+  --surface:        #1A1A1A;
+  --surface-raised: #222222;
+  --surface-border: #2A2A2A;
+  --text-primary:   #F5F5F5;
+  --text-secondary: #A0A0A0;
+  --text-muted:     #606060;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--onyx);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+/* Custom scrollbar — dark luxury style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--onyx);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Gold glow effect — used on focused inputs */
+.gold-glow {
+  box-shadow: 0 0 0 1px var(--gold), 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+/* Subtle gold border gradient */
+.gold-border {
+  border: 1px solid var(--surface-border);
+  transition: border-color 0.2s ease;
+}
+.gold-border:hover {
+  border-color: var(--gold-dark);
+}
+
+/* Code block base styling */
+pre {
+  background: #111 !important;
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+}
